@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Breath Check</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        text-align: center;
+        padding: 20px;
+      }
+      h1 {
+        color: #4682b4;
+      }
+      p {
+        color: #333;
+      }
+      button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        background-color: #4682b4;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      button:hover {
+        background-color: #5a9bd3;
+      }
+      img {
+        border: 2px solid #4682b4;
+        margin: 20px 0;
+      }
+      hr {
+        margin: 20px 0;
+      }
+      #result {
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: #4682b4;
+        font-weight: bold;
+      }
+      a:hover {
+        color: #5a9bd3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WELCOME TO BREATHER!</h1>
+    <p>As human beings, breathing is essential to being alive. Breather can help you check if you are alive.</p>
+    <p>Complete the checklist below:</p>
+    <p>If you check all yes then congrats, you are alive!</p>
+    <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/319/319924/diagram-of-breathing-and-exhalation.jpg" alt="Breathing diagram" height="150">
+    <hr>
+    <p>Are you human?</p>
+    <button id="human-yes">Yes</button>
+    <button id="human-no">No</button>
+    <p>Did you take a breath today?</p>
+    <button id="breath-yes">Yes</button>
+    <button id="breath-no">No</button>
+    <br><br>
+    <button id="check-button">Check Answers</button>
+    <p id="result"></p>
+    <p>
+      <a href="https://www.heart.org/en/healthy-living/healthy-lifestyle/stress-management/breathing-brings-benefits-infographic" target="_blank">
+        Click here for more breathing benefits information
+      </a>
+    </p>
+    
+    <script>
+      var humanAnswer = "";
+      var breathAnswer = "";
+      
+      document.getElementById("human-yes").onclick = function() {
+        humanAnswer = "yes";
+      };
+      
+      document.getElementById("human-no").onclick = function() {
+        humanAnswer = "no";
+      };
+      
+      document.getElementById("breath-yes").onclick = function() {
+        breathAnswer = "yes";
+      };
+      
+      document.getElementById("breath-no").onclick = function() {
+        breathAnswer = "no";
+      };
+      
+      document.getElementById("check-button").onclick = function() {
+        if (humanAnswer === "yes" && breathAnswer === "yes") {
+          document.getElementById("result").innerHTML = "Congrats, you breathed today!";
+        } else {
+          document.getElementById("result").innerHTML = "You might need some help";
+        }
+      };
+    </script>
+  </body>
+</html>
