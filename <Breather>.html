@@ -27,6 +27,12 @@
       button:hover {
         background-color: #5a9bd3;
       }
+      .selected {
+        outline: 3px solid #ffa500; 
+      }
+      .selected:hover {
+        background-color: #ffbb33;
+      }
       img {
         border: 2px solid #4682b4;
         margin: 20px 0;
@@ -74,22 +80,50 @@
       var humanAnswer = "";
       var breathAnswer = "";
       
+      // Helper function: removes .selected from a list of buttons
+      function clearSelection(buttonIds) {
+        buttonIds.forEach(function(id) {
+          document.getElementById(id).classList.remove("selected");
+        });
+      }
+
+      // When user clicks "human-yes"
       document.getElementById("human-yes").onclick = function() {
         humanAnswer = "yes";
+        // Remove .selected from the other button
+        clearSelection(["human-yes", "human-no"]);
+        // Highlight this one
+        this.classList.add("selected");
       };
       
+      // When user clicks "human-no"
       document.getElementById("human-no").onclick = function() {
         humanAnswer = "no";
+        // Remove .selected from the other button
+        clearSelection(["human-yes", "human-no"]);
+        // Highlight this one
+        this.classList.add("selected");
       };
       
+      // When user clicks "breath-yes"
       document.getElementById("breath-yes").onclick = function() {
         breathAnswer = "yes";
+        // Remove .selected from the other button
+        clearSelection(["breath-yes", "breath-no"]);
+        // Highlight this one
+        this.classList.add("selected");
       };
       
+      // When user clicks "breath-no"
       document.getElementById("breath-no").onclick = function() {
         breathAnswer = "no";
+        // Remove .selected from the other button
+        clearSelection(["breath-yes", "breath-no"]);
+        // Highlight this one
+        this.classList.add("selected");
       };
       
+      // Final check
       document.getElementById("check-button").onclick = function() {
         if (humanAnswer === "yes" && breathAnswer === "yes") {
           document.getElementById("result").innerHTML = "Congrats, you breathed today!";
